@@ -20,6 +20,13 @@ $(ODIR)/%.o: %.c $(DEPS)
 hellomake: $(OBJ)
 	gcc -o $@ $^ $(CFLAGS) $(LIBS)
 
+_OBJ2 = hellomake.o palindromofunc.o 
+OBJ2 = $(patsubst %,$(ODIR)/%,$(_OBJ2))
+
+hellomake: $(OBJ2)
+	gcc -o $@ $^ $(CFLAGS) $(LIBS)
+
+
 .PHONY: clean
 
 clean:
